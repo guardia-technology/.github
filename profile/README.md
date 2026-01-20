@@ -14,7 +14,23 @@
 
 <h2>🔃 Fluxo da Solução</h2>
 
+
+
+```mermaid
+sequenceDiagram
+    loop Send Data
+        Thermal Analyzer ->> Cloud Functions: Send enviroment data every 20s
+    end
+    
+    Mobile Monitor->>Cloud Functions: Get enriroment data.
+    Cloud Functions ->> Mobile Monitor: Notify of outside limits readings
+    
+    Cloud Functions ->> IR Control: Power ON/OFF Air Conditioning.
+```
+
 <!-- <p>
+Note right of John: Rational thoughts <br/>prevail!
+
 Guardia – Sistema de Monitoramento e Automação Industrial | 2024  
 Solução Industrial: Implementação de uma solução de IoT para monitoramento térmico em tempo real na indústria alimentícia, focando na conformidade de temperatura e umidade.
 Arquitetura Serverless: Utilização de Firebase Cloud Functions para processamento de eventos e lógica de negócio na nuvem, automatizando o envio de alertas e o controle de dispositivos externos.  Monitoramento em Tempo Real: Integração de sensores DHT22 com ESP32 para telemetria contínua, utilizando Firebase Realtime Database para armazenamento e sincronização de dados.
