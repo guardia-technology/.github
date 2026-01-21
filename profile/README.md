@@ -36,7 +36,7 @@
 ```mermaid
 sequenceDiagram
     loop Send Data
-        Thermal Analyzer ->> Cloud Functions: Send enviroment data every 20s
+        Thermal Analyzer ->> Cloud Functions: Send environment data every 20s
     end
     
     Mobile Monitor ->> Cloud Functions: Get enriroment data
@@ -47,7 +47,7 @@ sequenceDiagram
 <h2>ℹ️ Descrição dos segmentos</h2>
 
 <p style="text-align: justify; font-size:16px">
-    Nessa seção será descrito o funcionamneto de cada segmento do projeto, explicando seus objetivos, tecnologias e funcionamento.
+    Nessa seção será descrito o funcionamento de cada segmento do projeto, explicando seus objetivos, tecnologias e funcionamento.
 </p>
 
 <h3>🌡️ Segmento 1: Guardia Thermal Analyzer </h3>
@@ -55,14 +55,14 @@ sequenceDiagram
 <p style="text-align: justify; font-size:15px">
     Esse foi o primeiro segmento desenvolvido e que deu origem a todos os demais, seu objetivo é <b>coletar dados de temperatura e umidade</b> do ambiente. Para isso foi elaborado um sistema com <b>ESP-32</b> e sensores <b>DHT-22</b> que coletam esses dados em um intervalo de tempo determinado, por padrão é de 20 segundos. O ESP-32 tem a capacidade de se conectar a internet via Wi-Fi, com isso ele envia esses dados para serem processados, no caso ele envia para o <b>Firebase</b>, que é onde temos o segundo segmento do projeto.
     <br/>
-    A liguagem de progamação utilizada foi micropython, devido a sua facilidade de uso e aprendizagem.
+    A linguagem de programação utilizada foi micropython, devido a sua facilidade de uso e aprendizagem.
 </p>
 
 <h3>☁️ Segmento 2: Guardia Cloud Functions</h3>
 
 <p style="text-align: justify; font-size:16px">
     Esse segmento é o que contempla as configurações utilizadas no Firebase e no Firebase Cloud Functions. Este é um projeto serverless que utiliza o Cloud Functions para executar a lógica de backend e o Firebase Realtime Database para armazenar os dados.</br>
-    No Cloud Functions foi criada um função em Typescript que executa sempre que um novo registro, referente a uma leitura dos sensores, é realizado com isso é validado se os valores estão dentro do limite de segurança definido pelo usuário, caso não esteja ele envia uma notificação para o aplicativo móvel (Segemento 3) avisando da anomalia e pode acionar automaticamente o sistema de controle do ar-condicionado (Segmento 4). 
+    No Cloud Functions foi criada uma função em Typescript que executa sempre que um novo registro, referente a uma leitura dos sensores, é realizado com isso é validado se os valores estão dentro do limite de segurança definido pelo usuário, caso não esteja ele envia uma notificação para o aplicativo móvel (Segemento 3) avisando da anomalia e pode acionar automaticamente o sistema de controle do ar-condicionado (Segmento 4). 
 </p>
 
 <h3>📊 Segmento 3: Guardia Mobile Monitor</h3>
