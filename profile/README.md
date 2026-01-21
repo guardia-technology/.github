@@ -14,20 +14,26 @@
       
 <ul>
     <li>
-    <b>Arquitetura Serverless:</b> Firebase Cloud Functions para processamento de eventos e lógica de negócio na nuvem, automatizando o envio de alertas e o controle de dispositivos externos.
+    <b>Arquitetura Serverless:</b> Redução de custos operacionais e escalabilidade automática com Firebase.
     </li>
     <li>
-    <b>Monitoramento em Tempo Real:</b> Os sensores DHT22 e ESP32 permitem telemetria contínua enviando os dados para o Firebase Realtime Database para armazenamento e sincronização de dados.
+    <b>Monitoramento em Tempo Real:</b> Telemetria precisa com sensores DHT22 e baixa latência via Realtime Database.
     </li>
     <li>
-    <b>Automação de Dispositivos (Edge Computing)</b> Sistema de controle de climatização automatizado via emissor IR, acionado via nuvem para manter a temperatura dentro dos limites operacionais.
-    </li>
-    <li>
-    <b>Aplicativo Mobile:</b> Guardia conta também com um aplicativo mobile para visualização de métricas e recebimento de notificações push em caso de anomalias térmicas.
+    <b>Automação de Dispositivos (Edge Computing)</b> Resposta imediata a anomalias térmicas via controle IR.
     </li>
 </ul>
     
 </p>
+
+## 🛠️ Resumo Técnico dos Segmentos
+
+| Segmento | Tecnologia Principal | Papel no Sistema |
+| :--- | :--- | :--- |
+| **🌡️ Thermal Analyzer** | MicroPython / ESP32 | Coleta e telemetria de dados ambientais |
+| **☁️ Cloud Functions** | TypeScript / Firebase | Cérebro do sistema e lógica de automação |
+| **📊 Mobile Monitor** | Flutter / Dart | Interface mobile e alertas em tempo real |
+| **🤖 IR Control** | C++ (Arduino) / ESP32 | Execução física da automação via infravermelho |
 
 <h2>🔃 Fluxo da Solução</h2>
 
@@ -79,3 +85,4 @@ sequenceDiagram
     Guardia IR Control é o sistema de automação baseado em sinal infravermelho, com ele é possível decodificar o sinal de um controle, por exemplo de um ar-condicionado, e replicá-lo com um emissor IR, dessa forma permitindo automatizar o controle desses sistemas.<br>
     O projeto foi escrito em Linguagem C do Arduino devido ao melhor suporte de bibliotecas. 
 </p>
+
