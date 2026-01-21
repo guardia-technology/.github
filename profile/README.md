@@ -1,43 +1,32 @@
-<h1 style="text-align:center">🛡️ Guardia Tech</h1>
+# 🛡️ Guardia Tech
 
-<h2>🏗️ Sobre a Organização</h2>
+## 🏗️ Sobre a Organização
 
-<p style="font-size:16px">
-    Essa organização agrega os repositórios da Solução Guardia, um <b>Sistema de Monitoramento e Automação Industrial</b> desenvolvido no curso Big Data para Negócios na Fatec Ipiranga.
-</p>
+Essa organização agrega os repositórios da **Solução Guardia**, um **Sistema de Monitoramento e Automação Industrial** desenvolvido no curso Big Data para Negócios na Fatec Ipiranga.
 
-<h2>💬 Sobre a Solução Guardia</h2>
+---
 
-<p style="font-size:16px">
-    A solução Guardia surgiu com a implementação de uma solução de IoT para monitoramento térmico em tempo real na indústria alimentícia, focando na conformidade de temperatura e umidade oferecendo:
-    </br>
-      
-<ul>
-    <li>
-    <b>Arquitetura Serverless:</b> Redução de custos operacionais e escalabilidade automática com Firebase.
-    </li>
-    <li>
-    <b>Monitoramento em Tempo Real:</b> Telemetria precisa com sensores DHT22 e baixa latência via Realtime Database.
-    </li>
-    <li>
-    <b>Automação de Dispositivos (Edge Computing)</b> Resposta imediata a anomalias térmicas via controle IR.
-    </li>
-</ul>
-    
-</p>
+## 💬 Sobre a Solução Guardia
+
+A solução Guardia surgiu com a implementação de uma solução de IoT para monitoramento térmico em tempo real na indústria alimentícia, focando na conformidade de temperatura e umidade oferecendo:
+
+- **Arquitetura Serverless:** Redução de custos operacionais e escalabilidade automática com Firebase.
+- **Monitoramento em Tempo Real:** Telemetria precisa com sensores DHT22 e baixa latência via Realtime Database.
+- **Automação de Dispositivos (Edge Computing):** Resposta imediata a anomalias térmicas via controle IR.
+
+---
 
 ## 🛠️ Resumo Técnico dos Segmentos
 
 | Segmento | Tecnologia Principal | Papel no Sistema |
 | :--- | :--- | :--- |
-| **🌡️ Thermal Analyzer** | MicroPython / ESP32 | Coleta e telemetria de dados ambientais |
-| **☁️ Cloud Functions** | TypeScript / Firebase | Cérebro do sistema e lógica de automação |
-| **📊 Mobile Monitor** | Flutter / Dart | Interface mobile e alertas em tempo real |
-| **🤖 IR Control** | C++ (Arduino) / ESP32 | Execução física da automação via infravermelho |
+| [**🌡️ Thermal Analyzer**](https://github.com/guardia-technology/guardia-thermal-analyzer) | MicroPython / ESP32 | Coleta e telemetria de dados ambientais |
+| [**☁️ Cloud Functions**](https://github.com/guardia-technology/guardia-cloud-functions) | TypeScript / Firebase | Cérebro do sistema e lógica de automação |
+| [**📊 Mobile Monitor**](https://github.com/guardia-technology/guardia-mobile-monitor) | Flutter / Dart | Interface mobile e alertas em tempo real |
+| [**🤖 IR Control**](https://github.com/guardia-technology/guardia-ir-control) | C++ (Arduino) / ESP32 | Execução física da automação via infravermelho |
+---
 
-<h2>🔃 Fluxo da Solução</h2>
-
-
+## 🔃 Fluxo da Solução
 
 ```mermaid
 sequenceDiagram
@@ -50,39 +39,33 @@ sequenceDiagram
     Cloud Functions ->> IR Control: Aciona/Desliga Ar-condicionado
 ```
 
-<h2>ℹ️ Descrição dos segmentos</h2>
+## 🚀 Acesso Rápido aos Repositórios
 
-<p style="text-align: justify; font-size:16px">
-    Nessa seção será descrito o funcionamento de cada segmento do projeto, explicando seus objetivos, tecnologias e funcionamento.
-</p>
+- 🌡️ [Guardia Thermal Analyzer](https://github.com/guardia-technology/guardia-thermal-analyzer) - Firmware de coleta (MicroPython).
+- ☁️ [Guardia Cloud Functions](https://github.com/guardia-technology/guardia-cloud-functions) - Backend e lógica Serverless (TypeScript).
+- 📊 [Guardia Mobile Monitor](https://github.com/guardia-technology/guardia-mobile-monitor) - Aplicativo de monitoramento (Flutter).
+- 🤖 [Guardia IR Control](https://github.com/guardia-technology/guardia-ir-control) - Automação de hardware (C++/Arduino).
 
-<h3>🌡️ Segmento 1: Guardia Thermal Analyzer </h3>
+---
 
-<p style="text-align: justify; font-size:15px">
-    Esse foi o primeiro segmento desenvolvido e que deu origem a todos os demais, seu objetivo é <b>coletar dados de temperatura e umidade</b> do ambiente. Para isso foi elaborado um sistema com <b>ESP-32</b> e sensores <b>DHT-22</b> que coletam esses dados em um intervalo de tempo determinado, por padrão é de 20 segundos. O ESP-32 tem a capacidade de se conectar a internet via Wi-Fi, com isso ele envia esses dados para serem processados, no caso ele envia para o <b>Firebase</b>, que é onde temos o segundo segmento do projeto.
-    <br/>
-    A linguagem de programação utilizada foi micropython, devido a sua facilidade de uso e aprendizagem.
-</p>
+## ℹ️ Descrição dos segmentos
 
-<h3>☁️ Segmento 2: Guardia Cloud Functions</h3>
+Nesta seção será descrito o funcionamento de cada segmento do projeto, explicando seus objetivos, tecnologias e funcionamento.
 
-<p style="text-align: justify; font-size:16px">
-    Esse segmento é o que contempla as configurações utilizadas no Firebase e no Firebase Cloud Functions. Este é um projeto serverless que utiliza o Cloud Functions para executar a lógica de backend e o Firebase Realtime Database para armazenar os dados.</br>
-    No Cloud Functions foi criada uma função em Typescript que executa sempre que um novo registro, referente a uma leitura dos sensores, é realizado com isso é validado se os valores estão dentro do limite de segurança definido pelo usuário, caso não esteja ele envia uma notificação para o aplicativo móvel (Segemento 3) avisando da anomalia e pode acionar automaticamente o sistema de controle do ar-condicionado (Segmento 4). 
-</p>
+### 🌡️ Segmento 1: Guardia Thermal Analyzer 
 
-<h3>📊 Segmento 3: Guardia Mobile Monitor</h3>
+Esse foi o primeiro segmento desenvolvido e que deu origem a todos os demais. Seu objetivo é **coletar dados de temperatura e umidade** do ambiente. Para isso, foi elaborado um sistema com **ESP-32** e sensores **DHT-22** que coletam esses dados em um intervalo de tempo determinado (por padrão, 20 segundos). O ESP-32 tem a capacidade de se conectar à internet via Wi-Fi para enviar esses dados ao **Firebase**, onde o processamento é realizado.
 
-<p style="text-align: justify; font-size:16px">
-    O Mobile Monitor é a forma prática do usuário poder conferir as medições em tempo real e ser notificado quando a temperatura ou umidade saem do limite estipulado.<br/>
-    Ele foi desenvolvido em Flutter com linguagem Dart, e utiliza a biblioteca flutter fire para se comunicar o Firebase.
-</p>
+### ☁️ Segmento 2: Guardia Cloud Functions
 
+Esse segmento contempla as configurações utilizadas no Firebase e no Firebase Cloud Functions. Este é um projeto serverless que utiliza o Cloud Functions para executar a lógica de backend e o Firebase Realtime Database para armazenar os dados.
 
-<h3>🤖 Segmento 4: Guardia IR Control</h3>
+No Cloud Functions, foi criada uma função em **TypeScript** que executa sempre que um novo registro de leitura dos sensores é realizado. O sistema valida se os valores estão dentro do limite de segurança definido pelo usuário; caso não estejam, envia uma notificação para o aplicativo móvel (**Segmento 3**) e aciona automaticamente o sistema de controle do ar-condicionado (**Segmento 4**).
 
-<p style="text-align: justify; font-size:16px">
-    Guardia IR Control é o sistema de automação baseado em sinal infravermelho, com ele é possível decodificar o sinal de um controle, por exemplo de um ar-condicionado, e replicá-lo com um emissor IR, dessa forma permitindo automatizar o controle desses sistemas.<br>
-    O projeto foi escrito em Linguagem C do Arduino devido ao melhor suporte de bibliotecas. 
-</p>
+### 📊 Segmento 3: Guardia Mobile Monitor
 
+O Mobile Monitor é a forma prática de o usuário conferir as medições em tempo real e ser notificado quando a temperatura ou umidade saem do limite estipulado. Foi desenvolvido em **Flutter** para garantir uma interface fluida e multiplataforma.
+
+### 🤖 Segmento 4: Guardia IR Control
+
+O Guardia IR Control é o sistema de automação baseado em sinal infravermelho. Com ele, é possível decodificar o sinal de um controle remoto (como o de um ar-condicionado) e replicá-lo com um emissor IR, permitindo automatizar o controle desses sistemas de climatização de forma remota e inteligente.
