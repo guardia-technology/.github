@@ -35,13 +35,13 @@
 
 ```mermaid
 sequenceDiagram
-    loop Send Data
-        Thermal Analyzer ->> Cloud Functions: Send environment data every 20s
+    loop Envio de Dados
+        Thermal Analyzer ->> Cloud Functions: Envia dados do ambiente (20s)
     end
     
-    Mobile Monitor ->> Cloud Functions: Get enriroment data
-    Cloud Functions ->> Mobile Monitor: Notify of outside limits readings
-    Cloud Functions ->> IR Control: Power ON/OFF Air Conditioning
+    Mobile Monitor ->> Cloud Functions: Consulta dados em tempo real
+    Cloud Functions ->> Mobile Monitor: Notifica leituras fora do limite
+    Cloud Functions ->> IR Control: Aciona/Desliga Ar-condicionado
 ```
 
 <h2>ℹ️ Descrição dos segmentos</h2>
